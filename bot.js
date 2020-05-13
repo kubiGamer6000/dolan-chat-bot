@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const wash = require('washyourmouthoutwithsoap');
 const bot = new Discord.Client();
 
+bot.on('ready', async () => {
+	await bot.user.setActivity(`bad words.`, { type: 3 });
+});
+
 bot.on('message', async (msg) => {
 	if (msg.author.bot) return;
 	if (wash.check('en', msg.content) || wash.check('bg', msg.content)) {
